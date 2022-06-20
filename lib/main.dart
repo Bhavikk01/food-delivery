@@ -36,9 +36,9 @@ class MyApp extends StatelessWidget {
               ),
               primaryColor: const Color.fromARGB(255, 0, 194, 203)
           ),
-          home: const AddAddressPage(),
-          // initialRoute: RouteHelper.initial,
-          // getPages: RouteHelper.routes,
+          home: const HomePage(),
+          initialRoute: RouteHelper.initial,
+          getPages: RouteHelper.routes,
         );
       });
     });

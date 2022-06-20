@@ -3,7 +3,7 @@ class AppConstant{
   static const int AppVersion = 1;
   static const String token = "FoodDeliveryToken";
   static const String uploadUrl = "uploads/";
-  static const String baseUrl="http://192.168.10.9:5000/";
+  static const String baseUrl="http://192.168.231.27:5000/";
 
 
   static const String popularProductUrl = "api/getPopularProduct";

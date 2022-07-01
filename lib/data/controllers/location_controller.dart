@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, prefer_final_fields, unused_field
+
 import 'package:food_delivery/data/repository/location_repo.dart';
 import 'package:food_delivery/models/address_model.dart';
 import 'package:geocoding/geocoding.dart';
@@ -17,9 +19,7 @@ class LocationController  extends GetxController implements GetxService{
 
   Placemark _pickPlaceMark = Placemark();
   List<AddressModel> _addressList = [];
-  late List<AddressModel> _allAddressList;
   List<String> _addressTypeList = ['home','office', 'others'];
-  int _addressTypeIndex = 0;
   late Map<String, dynamic> _getAddress ;
   late GoogleMapController _mapController;
   bool _updateAddressData = true;

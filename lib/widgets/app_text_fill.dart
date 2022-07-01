@@ -8,7 +8,7 @@ class AppTextField extends StatelessWidget {
   final String hintText;
   final IconData icon;
 
-  AppTextField({Key? key, required this.textController, required this.hintText, required this.icon}) : super(key: key);
+  const AppTextField({Key? key, required this.textController, required this.hintText, required this.icon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, unused_field, prefer_final_fields
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery/Utils/bigText.dart';
 import 'package:food_delivery/Utils/color_utils.dart';
@@ -51,7 +53,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Address Page"),
+        title: const Text("Address Page"),
         backgroundColor: AppColors.mainColor,
       ),
       body: GetBuilder<LocationController>(builder: (locationController){

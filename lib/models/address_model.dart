@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 class AddressModel{
 
   late int? _id;

@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this
+
 class AuthModel{
   String? name;
   String? password;
@@ -15,7 +17,7 @@ class AuthModel{
 
   Map<String, dynamic> toJson(AuthModel user){
 
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['f_name'] = this.name;
     data['phone'] = this.phone;
     data['password'] = this.password;

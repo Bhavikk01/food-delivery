@@ -12,8 +12,6 @@ import 'package:food_delivery/widgets/food_page_banners.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:food_delivery/widgets/recommended_food_list.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
@@ -46,7 +44,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       children: [
         //Slider Section
         GetBuilder<PopularProductController>(builder: (popularProduct) {
-          return popularProduct.isLoaded? Container(
+          return popularProduct.isLoaded? SizedBox(
             height: Dimensions.pageView,
             child: PageView.builder(
                 controller: pageController,
@@ -55,14 +53,14 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   return _buildPageItem(index,popularProduct.popularProductList[index]);
                 }
             ),
-          ):CircularProgressIndicator(
+          ):const CircularProgressIndicator(
             color: AppColors.mainColor,
           );
         }),
         //Scrolling Dots
         GetBuilder<PopularProductController>(builder: (popularProducts) {
           return DotsIndicator(
-            dotsCount: popularProducts.popularProductList.length==0? 1:popularProducts.popularProductList.length,
+            dotsCount: popularProducts.popularProductList.isEmpty? 1:popularProducts.popularProductList.length,
             position: _currPageValue,
             decorator: DotsDecorator(
               size: const Size.square(9.0),
@@ -83,12 +81,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               BigText(text: "Recommended"),
               SizedBox(width: Dimensions.width10),
               Container(
-                margin: EdgeInsets.only(bottom: 3),
+                margin: const EdgeInsets.only(bottom: 3),
                 child: BigText(text:".",color: Colors.black26),
               ),
               SizedBox(width: Dimensions.width10),
               Container(
-                  margin: EdgeInsets.only(bottom: 3),
+                  margin: const EdgeInsets.only(bottom: 3),
                   child: SmallText(text: "Food pairing")
               ),
             ],
@@ -102,7 +100,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             removeTop: true,
 
             child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: recommendedProduct.recommendedProductList.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
@@ -112,7 +110,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       },
                       child: PopularFoodList(itemList: recommendedProduct.recommendedProductList[index]));
                 }),
-          ) : CircularProgressIndicator(color: AppColors.mainColor,);
+          ) : const CircularProgressIndicator(color: AppColors.mainColor,);
         })
       ],
     );
@@ -130,9 +128,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           margin: EdgeInsets.only(right: Dimensions.width10,left: Dimensions.width10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Dimensions.radius30),
-            color: index.isEven? const Color(0xff69c5df): Color(0xff00c2cb),
+            color: index.isEven? const Color(0xff69c5df): const Color(0xff00c2cb),
             image: DecorationImage(
-              image: NetworkImage(AppConstant.baseUrl+AppConstant.uploadUrl+popularProduct.img!),
+              image: NetworkImage(AppConstant.imageLoadingUrl+AppConstant.uploadUrl+popularProduct.img!),
               fit: BoxFit.cover,
             )
           ),

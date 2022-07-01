@@ -1,7 +1,6 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
-import 'package:food_delivery/Utils/app_constants.dart';
 import 'package:food_delivery/Utils/color_utils.dart';
 import 'package:food_delivery/data/controllers/cart_product_controller.dart';
 import 'package:food_delivery/data/repository/popular_product_repo.dart';

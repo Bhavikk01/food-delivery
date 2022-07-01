@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery/Pages/Home/main_food_page.dart';
 import 'package:food_delivery/Utils/app_constants.dart';
@@ -36,7 +38,7 @@ class CartPage extends StatelessWidget {
                   SizedBox(width: Dimensions.width20*5),
                   GestureDetector(
                     onTap: () {
-                      Get.to(()=> MainFoodPage());
+                      Get.to(()=> const MainFoodPage());
                     },
                     child: AppIcon(
                       icon: Icons.home_outlined,
@@ -68,7 +70,7 @@ class CartPage extends StatelessWidget {
                     return ListView.builder(
                         itemCount: cartProduct.getItems.length,
                         itemBuilder: (_, index) {
-                          return Container(
+                          return SizedBox(
                               height: Dimensions.height20 * 5,
                               width: double.maxFinite,
                               child: Row(
@@ -94,7 +96,7 @@ class CartPage extends StatelessWidget {
                                               Dimensions.radius20),
                                           color: Colors.white,
                                           image: DecorationImage(
-                                            image: NetworkImage(AppConstant.baseUrl+AppConstant.uploadUrl+cartProduct.getItems[index].img!),
+                                            image: NetworkImage(AppConstant.imageLoadingUrl+AppConstant.uploadUrl+cartProduct.getItems[index].img!),
                                             fit: BoxFit.cover,
                                           )
                                       ),
@@ -102,7 +104,7 @@ class CartPage extends StatelessWidget {
                                   ),
                                   SizedBox(width: Dimensions.width10),
                                   Expanded(
-                                    child: Container(
+                                    child: SizedBox(
                                       height: Dimensions.height20 * 5,
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment

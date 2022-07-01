@@ -26,7 +26,7 @@ class AccountPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            AppIcon(
+            const AppIcon(
                 icon: Icons.person,
                 backgroundColor: AppColors.mainColor,
                 iconColor: Colors.white,
@@ -40,7 +40,7 @@ class AccountPage extends StatelessWidget {
                 child: Column(
                   children: [
                     AccountWidget(
-                      appIcon: AppIcon(
+                      appIcon: const AppIcon(
                         icon: Icons.person,
                         backgroundColor: AppColors.mainColor,
                         iconColor: Colors.white,

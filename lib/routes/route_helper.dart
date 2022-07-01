@@ -7,7 +7,7 @@ import '../Pages/Home/home_page.dart';
 
 class RouteHelper{
   static const String initial = "/";
-  static String getInitial()=>'$initial';
+  static String getInitial()=>initial;
 
   static const String popularFood = "/popular_food";
   static String getPopularFood(int pageId)=> '$popularFood?pageId=$pageId';
@@ -16,7 +16,7 @@ class RouteHelper{
   static String getRecommendedFood(int pageId)=> '$recommendedFood?pageId=$pageId';
 
   static const String cartPage = '/cart-page';
-  static String getCartPage()=>'$cartPage';
+  static String getCartPage()=>cartPage;
 
 
   static List<GetPage> routes=[

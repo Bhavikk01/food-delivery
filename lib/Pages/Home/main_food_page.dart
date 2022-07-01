@@ -28,12 +28,9 @@ class _MainFoodPageState extends State<MainFoodPage> {
         body: Column(
         children: [
           Container(
-
-            child: Container(
-              margin: EdgeInsets.only(top: Dimensions.height40,bottom: Dimensions.height15),
-              padding: EdgeInsets.only(right: Dimensions.width20,left: Dimensions.width20),
-              child: const MainPageHeader(),
-            ),
+            margin: EdgeInsets.only(top: Dimensions.height40,bottom: Dimensions.height15),
+            padding: EdgeInsets.only(right: Dimensions.width20,left: Dimensions.width20),
+            child: const MainPageHeader(),
           ),
           const Expanded(
               child: SingleChildScrollView(

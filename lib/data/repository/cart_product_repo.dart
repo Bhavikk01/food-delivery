@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_function_literals_in_foreach_calls
+
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/cart_model.dart';
@@ -26,9 +28,9 @@ class CartProductRepo {
       carts=sharedPreferences.getStringList("cart-list")!;
     }
     List<CartModel> cart=[];
-    carts.forEach((element) {
+    for (var element in carts) {
       cart.add(CartModel.fromJson(jsonDecode(element)));
-    });
+    }
     return cart;
   }
 
@@ -38,9 +40,9 @@ class CartProductRepo {
       cartHistory = sharedPreferences.getStringList("cart-history-list")!;
     }
     List<CartModel> cartListHistory=[];
-    cartHistory.forEach((element) {
+    for (var element in cartHistory) {
       cartListHistory.add(CartModel.fromJson(jsonDecode(element)));
-    });
+    }
     return cartListHistory;
   }
 

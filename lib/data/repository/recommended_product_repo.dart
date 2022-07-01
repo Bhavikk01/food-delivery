@@ -12,7 +12,7 @@ class RecommendedProductRepo extends GetxService{
   }
 
   Future<Response> postRecommendedProducts(ProductModel productModel)async{
-    Response response = await apiClient.postData(AppConstant.addrecommendedProductUrl, productModel);
+    Response response = await apiClient.postData(AppConstant.addRecommendedProductUrl, productModel);
     return response;
   }
 

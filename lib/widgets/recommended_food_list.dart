@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery/Utils/app_constants.dart';
 import 'package:food_delivery/Utils/dimentions.dart';
@@ -25,7 +27,7 @@ class PopularFoodList extends StatelessWidget {
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
                 color: Colors.white38,
                 image: DecorationImage(
-                  image: NetworkImage(AppConstant.baseUrl+AppConstant.uploadUrl+itemList.img!),
+                  image: NetworkImage(AppConstant.imageLoadingUrl+AppConstant.uploadUrl+itemList.img!),
                   fit: BoxFit.cover,
                 ),
               ),

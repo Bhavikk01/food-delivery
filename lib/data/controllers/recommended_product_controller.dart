@@ -1,6 +1,5 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:food_delivery/Utils/app_constants.dart';
+// ignore_for_file: avoid_print
+
 import 'package:get/get.dart';
 import '../../models/popular_products_model.dart';
 import '../repository/recommended_product_repo.dart';
@@ -25,8 +24,6 @@ class RecommendedProductController extends GetxController{
       _recommendedProductList.addAll(Product.fromJson(response.body).products);
       _isloaded=true;
       update();
-    }else{
-      print("Couldn't get recommended product");
     }
   }
 }

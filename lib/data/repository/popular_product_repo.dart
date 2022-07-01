@@ -12,7 +12,7 @@ class PopularProductRepo extends GetxService{
   }
 
   Future<Response> postPopularProducts(ProductModel productModel)async{
-    Response response = await apiClient.postData(AppConstant.addpopularProductUrl, productModel.toJson());
+    Response response = await apiClient.postData(AppConstant.addPopularProductUrl, productModel.toJson());
     return response;
   }
 

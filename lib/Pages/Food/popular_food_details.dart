@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors, must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery/Pages/Home/main_food_page.dart';
 import 'package:food_delivery/Utils/app_constants.dart';
@@ -36,7 +38,7 @@ class PopularFoodDetails extends StatelessWidget {
                 height: Dimensions.popularFoodImgSize,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(AppConstant.baseUrl+AppConstant.uploadUrl+product.img!),
+                    image: NetworkImage(AppConstant.imageLoadingUrl+AppConstant.uploadUrl+product.img!),
                     fit: BoxFit.cover,
                   )
                 ),
@@ -66,7 +68,7 @@ class PopularFoodDetails extends StatelessWidget {
                           },
                           child: const AppIcon(icon: Icons.shopping_cart_outlined)),
                       popularProduct.totalItems>=1?
-                      Positioned(
+                      const Positioned(
                         right: 0,
                         top: 0,
                         child: AppIcon(
@@ -128,7 +130,7 @@ class PopularFoodDetails extends StatelessWidget {
           height: Dimensions.bottomHeightBar,
           padding: EdgeInsets.only(top: Dimensions.height30,bottom: Dimensions.height30,right: Dimensions.width20,left: Dimensions.width20),
           decoration: BoxDecoration(
-              color: Color(0xFF9B9BA1FF),
+              color: const Color(0xFF9B9BA1FF),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(Dimensions.radius20*2),
                 topRight: Radius.circular(Dimensions.radius20*2),
@@ -149,7 +151,7 @@ class PopularFoodDetails extends StatelessWidget {
                         onTap:(){
                           popularProduct.setQuantity(false);
                         },
-                        child: Icon(Icons.remove)),
+                        child: const Icon(Icons.remove)),
                     SizedBox(width: Dimensions.width10/2),
                     BigText(text: popularProduct.quantity.toString(),size: Dimensions.font26),
                     SizedBox(width: Dimensions.width10/2),
@@ -157,7 +159,7 @@ class PopularFoodDetails extends StatelessWidget {
                         onTap: (){
                           popularProduct.setQuantity(true);
                         },
-                        child: Icon(Icons.add)),
+                        child: const Icon(Icons.add)),
                   ],
                 ),
               ),

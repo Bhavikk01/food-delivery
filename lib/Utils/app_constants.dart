@@ -1,9 +1,10 @@
 class AppConstant{
   static const String appName = "FoodDelivery";
-  static const int AppVersion = 1;
+  static const int appVersion = 1;
   static const String token = "FoodDeliveryToken";
+  static const String imageLoadingUrl = "http://mvs.bslmeiyu.com/";
   static const String uploadUrl = "uploads/";
-  static const String baseUrl="http://192.168.231.27:5000/";
+  static const String baseUrl="http://192.168.10.8:5000/";
 
 
   static const String popularProductUrl = "api/getPopularProduct";
@@ -13,7 +14,7 @@ class AppConstant{
   static const String userAddress = "user_address";
 
   static const String registrationUrl = "api/addUsers";
-  static const String addpopularProductUrl = "api/addPopularProduct";
-  static const String addrecommendedProductUrl = "api/addRecommendedProduct";
+  static const String addPopularProductUrl = "api/addPopularProduct";
+  static const String addRecommendedProductUrl = "api/addRecommendedProduct";
 
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, avoid_print
+
 import 'package:food_delivery/Utils/app_constants.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +13,7 @@ class ApiClient extends GetConnect implements GetxService{
   ApiClient({required this.appBaseUrl}){
     baseUrl=appBaseUrl;
     token=AppConstant.token;
-    timeout=Duration(seconds: 30);
+    timeout=const Duration(seconds: 30);
     _mainHeaders={
       'Content-type':'application/json; charset=UTF-8',
       'Authorization':'Bearer $token',

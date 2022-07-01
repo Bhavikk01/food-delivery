@@ -1,6 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery/Utils/bigText.dart';
-import 'package:food_delivery/Utils/color_utils.dart';
 import 'package:food_delivery/Utils/dimentions.dart';
 import 'package:food_delivery/Utils/small_text.dart';
 import 'package:food_delivery/models/popular_products_model.dart';

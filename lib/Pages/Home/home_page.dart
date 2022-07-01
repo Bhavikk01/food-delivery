@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/Pages/Cart/cart_history.dart';
 import 'package:food_delivery/Pages/Home/main_food_page.dart';
@@ -17,7 +16,6 @@ class _HomePageState extends State<HomePage> {
 
   late PersistentTabController _controller;
 
-  int _selectedIndex = 0;
   List <Widget> _buildScreen() {
     return [
       const MainFoodPage(),
@@ -56,7 +54,6 @@ class _HomePageState extends State<HomePage> {
 
     void onTapNav(int index){
       setState((){
-        _selectedIndex = index;
       });
     }
 

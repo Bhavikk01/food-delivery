@@ -18,7 +18,7 @@ class CartHistory extends StatelessWidget {
 
     var getCartHistoryList = Get.find<CartProductController>()
         .getCartHistoryList().reversed.toList();
-    Map<String, int> cartItemsPerOrder = Map();
+    Map<String, int> cartItemsPerOrder = {};
 
     for(int i=0;i<getCartHistoryList.length;i++) {
         if(cartItemsPerOrder.containsKey(getCartHistoryList[i].time)){
@@ -69,7 +69,7 @@ class CartHistory extends StatelessWidget {
                 context: context,
                 removeTop: true,
                 child: ListView(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   children: [
                     for(int i=0;i<itemsPerOrder.length;i++)
                      Container(
@@ -105,30 +105,28 @@ class CartHistory extends StatelessWidget {
                                        borderRadius: BorderRadius.circular(Dimensions.radius20/3),
                                        image: DecorationImage(
                                          fit: BoxFit.cover,
-                                         image: NetworkImage(AppConstant.baseUrl + AppConstant.uploadUrl + getCartHistoryList[saveCounter-1].img!,)
+                                         image: NetworkImage(AppConstant.imageLoadingUrl + AppConstant.uploadUrl + getCartHistoryList[saveCounter-1].img!,)
                                        )
                                      ),
                                    ) : Container();
                                  })
                                ),
-                               Container(
-                                 child: Column(
-                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                   crossAxisAlignment: CrossAxisAlignment.end,
-                                   children: [
-                                     SmallText(text: "Total",color: AppColors.mianBlackColor),
-                                     BigText(text: "${itemsPerOrder[i]} Items",size: 16,color: AppColors.mianBlackColor,),
-                                     Container(
+                               Column(
+                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                 crossAxisAlignment: CrossAxisAlignment.end,
+                                 children: [
+                                   SmallText(text: "Total",color: AppColors.mianBlackColor),
+                                   BigText(text: "${itemsPerOrder[i]} Items",size: 16,color: AppColors.mianBlackColor,),
+                                   Container(
 
-                                       padding: EdgeInsets.symmetric(horizontal: Dimensions.width10,vertical: Dimensions.height10/2),
-                                       decoration: BoxDecoration(
-                                       borderRadius: BorderRadius.circular(Dimensions.radius20/3),
-                                         border: Border.all(width: 1,color: AppColors.mainColor)
-                                     ),
-                                       child: SmallText(text: "one more",color: AppColors.mainColor,),
-                                     ),
-                                   ],
-                                 ),
+                                     padding: EdgeInsets.symmetric(horizontal: Dimensions.width10,vertical: Dimensions.height10/2),
+                                     decoration: BoxDecoration(
+                                     borderRadius: BorderRadius.circular(Dimensions.radius20/3),
+                                       border: Border.all(width: 1,color: AppColors.mainColor)
+                                   ),
+                                     child: SmallText(text: "one more",color: AppColors.mainColor,),
+                                   ),
+                                 ],
                                )
                              ],
                            )

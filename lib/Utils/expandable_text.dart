@@ -35,7 +35,7 @@ class _ExpandableTextState extends State<ExpandableText> {
     return Container(
       child: secondHalf.isEmpty? SmallText(text: firstHalf) : Column(
         children: [
-          SmallText(text:  hiddenText? (firstHalf+"..."): (firstHalf+" "+secondHalf),size: Dimensions.font16,color: Color(0xFF000000)),
+          SmallText(text:  hiddenText? (firstHalf+"..."): (firstHalf+" "+secondHalf),size: Dimensions.font16,color: const Color(0xFF000000)),
           SizedBox(height: hiddenText? 0:Dimensions.height10),
           InkWell(
             onTap:(){

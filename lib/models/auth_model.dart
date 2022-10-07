@@ -1,30 +1,26 @@
-// ignore_for_file: unnecessary_this
-
-class AuthModel{
-  String? name;
-  String? password;
-  String? phone;
+class UserModel{
+  String? uid;
   String? email;
+  String? firstName;
+  String? secondName;
 
-  AuthModel({required this.name,required this.password,required this.phone,required this.email});
+  UserModel({this.uid,this.email,this.firstName,this.secondName});
 
-  AuthModel.fromMap(Map<String, dynamic> json){
-    name= json['name'];
-    password= json['password'];
-    phone = json['phone'];
-    email= json['email'];
+  factory UserModel.fromMap(map){
+    return UserModel(
+      uid: map['uid'],
+      email: map['email'],
+      firstName: map['firstName'],
+      secondName: map['secondName'],
+    );
   }
-
-  Map<String, dynamic> toJson(AuthModel user){
-
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['f_name'] = this.name;
-    data['phone'] = this.phone;
-    data['password'] = this.password;
-    data['email'] = this.email;
-    return data;
+  Map<String,dynamic> toMap(){
+    return {
+      'uid': uid,
+      'email': email,
+      'firstName': firstName,
+      'secondName': secondName,
+    };
   }
-
-
 
 }

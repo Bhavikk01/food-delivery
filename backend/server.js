@@ -1,39 +1,15 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const mongooseDatabase = require('./mongoose/mongoose_database');
 const app = express();
+const mongooseModel = new mongooseDatabase();
 
 app.use(express.json());
-
-mongoose.connect('mongodb://localhost:27017/food_delivery', {
-    useUnifiedTopology: true,
-}).then(() => console.log("connection successful")).catch((err) => console.log(err));
-
-
-//Defining Schemas
-const popularProductSchema = new mongoose.Schema({
-    id: Number,
-    name: String,
-    description: String,
-    price: Number,
-    stars: Number,
-    img: String,
-    location: String,
-    created_at: String,
-    updated_at: String,
-    type_id: Number,
-});
-
-
-//Defining collections
-const Recommended_Products = new mongoose.model("Recommended_Product", popularProductSchema);
-const Popular_Products = new mongoose.model("Popular_Product", popularProductSchema);
 
 app.use(
     express.urlencoded(
         {
             extended: true,
         })
-
 );
 
 // Home Route
@@ -45,67 +21,49 @@ app.get("/", function (req, res) {
 
 app.post("/api/addRecommendedProduct", async function (req, res) {
     console.log("Result", req.body);
-
-    const data = new Recommended_Products({
-        id: req.body.id,
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        stars: req.body.stars,
-        img: req.body.img,
-        location: req.body.location,
-        created_at: req.body.created_at,
-        updated_at: req.body.updated_at,
-        type_id: req.body.type_id,
+    await mongooseModel.insertRecommended(req.body).then((data) => {
+        res.json(data);
     });
-
-    const val = await data.save();
-    res.json(val);
-
 })
 
 app.post("/api/addPopularProduct", async function (req, res) {
 
-    const data = new Popular_Products({
-        id: req.body.id,
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        stars: req.body.stars,
-        img: req.body.img,
-        location: req.body.location,
-        created_at: req.body.created_at,
-        updated_at: req.body.updated_at,
-        type_id: req.body.type_id,
+    await mongooseModel.insertPopular(req.body).then((data) => {
+        res.json(data);
     });
 
-    const val = await data.save();
-    res.json(val);
-
 })
-
 
 //Get Commands
 
 app.get("/api/getPopularProduct", async function (req, res) {
-    res.status(200).send({
-        total_size: await Popular_Products.count,
-        type_id: 2,
-        offset: 0,
-        products: await Popular_Products.find()
-    });
+    await mongooseModel.getAllPopularProduct()
+        .then((popularList) => {
+            res.status(200).send({
+                total_size: Object.keys(popularList).length,
+                type_id: 2,
+                offset: 0,
+                products: popularList
+            });
+        });
 });
 
 app.get("/api/getRecommendedProduct", async function (req, res) {
-    res.status(200).send({
-        total_size: await Recommended_Products.count,
-        type_id: 3,
-        offset: 0,
-        products: await Recommended_Products.find()
-    });
+    await mongooseModel.getAllRecommendedProduct()
+        .then((recommendedList) => {
+            res.status(200).send({
+                total_size: Object.keys(recommendedList).length,
+                type_id: 2,
+                offset: 0,
+                products: recommendedList
+            });
+        });
 
 });
 
+mongooseModel.launch().then(() => {
+    console.log('Connection to mongoose is completed');
+});
 
 app.listen(5000, function () {
     console.log("Server started at port 5000");

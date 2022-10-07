@@ -29,8 +29,14 @@ class AppTextField extends StatelessWidget {
             )
           ]
       ),
-      child: TextField(
+      child: TextFormField(
         controller: textController,
+        validator:(value) {
+          if(value!.isEmpty){
+            return "data cant be empty";
+          }
+          return null;
+        },
         decoration: InputDecoration(
           hintText: hintText,
           prefixIcon: Icon(icon,color: Colors.yellow,),

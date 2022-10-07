@@ -42,6 +42,8 @@ dependencies:
   shared_preferences: ^2.0.11
   intl: ^0.17.0
   http: ^0.13.4
+  cloud_firestore: ^3.1.10
+  fluttertoast: ^8.0.9
   carousel_slider:
   google_maps_flutter: ^2.1.2
   geocoding: ^2.0.4

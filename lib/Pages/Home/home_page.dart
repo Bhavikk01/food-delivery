@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   List <Widget> _buildScreen() {
     return [
       const MainFoodPage(),
-      const SignUpPage(),
+      Container(),
       const CartHistory(),
       const AccountPage()
     ];

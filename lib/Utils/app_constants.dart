@@ -4,7 +4,7 @@ class AppConstant{
   static const String token = "FoodDeliveryToken";
   static const String imageLoadingUrl = "http://mvs.bslmeiyu.com/";
   static const String uploadUrl = "uploads/";
-  static const String baseUrl="http://192.168.10.8:5000/";
+  static const String baseUrl="http://192.168.207.27:5000/";
 
 
   static const String popularProductUrl = "api/getPopularProduct";
